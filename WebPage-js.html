@@ -1,0 +1,62 @@
+    <script>
+    
+
+           document.addEventListener('DOMContentLoaded', function() {
+           var selectBoxes = document.querySelectorAll('select');
+           M.FormSelect.init(selectBoxes);
+           
+           var datePicker = document.getElementById("meetDate");
+           M.Datepicker.init(datePicker);
+           });
+    
+      document.getElementById("btn").addEventListener("click", btnClick);
+      document.getElementById("zip").addEventListener("input", getLocation);
+      
+      function btnClick(){
+         
+         var fName = document.getElementById("first_name").value;
+         var lName = document.getElementById("last_name").value;
+         var dDown = document.getElementById("dDown").value;
+         google.script.run.userClickedBtn(fName, lName, dDown);
+         document.getElementById("first_name").value = "";
+         document.getElementById("last_name").value = "";
+         document.getElementById("dDown").selectedIndex = 0;
+         M.FormSelect.init(document.getElementById("dDown"));
+      }
+      
+      function getLocation(){
+         var zipCode = document.getElementById("zip").value;
+         if(zipCode.length === 6){
+         google.script.run.withSuccessHandler(updateLocation).getLoc(zipCode);
+         }
+      }
+      
+      function updateLocation(loc){
+         document.getElementById("loc").value = loc;
+         M.updateTextFields();
+      }
+      
+      function barChart(){
+      
+               var chrt = document.getElementById("myChart").getContext("2d");
+               var myChart = new chart(chrt,{
+                  type:'bar',
+                  data:{
+                       labels:["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                       datasets:[{
+                                label:"DataVisitors",
+                                data:[1003, 1009, 1015, 1002, 1007, 1012, 1008, 1011, 1000, 900, 950, 1019],
+                                backgroundColor:'rgba(0,0,0,0)',
+                                borderColor:'#000',
+                                borderWidth:1,
+                       }]
+                  }, options:{}
+      
+      });
+      
+     }
+      
+
+
+    
+    </script>
