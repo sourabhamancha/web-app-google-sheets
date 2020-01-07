@@ -16,9 +16,11 @@ The project is developed in GAS environment, which is diveded into 4 subfiles:
   
 # Project Setup
 1) Create a new project in https://script.google.com/home
-2) Make 4 files and copy the respective codes from the project and save it
-3) In the Apps Script File, go to publish > Deploy as web app
-4) Copy the web app URL and authorize the project
-5) Submit
+2) Go to File > New > Script file and name it as Code.gs
+3) Copy the code from Code.gs from this project to the newly added Code.gs
+4) Make 3 new HTML files and name them WebPage.html, WebPage-css.html and WebPage-js.html and copy the respective codes in the    project and save the project
+5) In the Apps Script File, go to Publish > Deploy as web app
+6) Copy the web app URL and authorize the project
+7) Submit
 
 You can now use the copied URL to open the web page.
